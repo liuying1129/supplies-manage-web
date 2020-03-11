@@ -31,7 +31,7 @@
 	<!-- check="false":provider未启动,consumer仍可启动. provider启动后,consumer可正常使用 -->
 	<!-- 这里配置后,则不需要各个服务引用单独配置check -->
 	<dubbo:consumer check="false" />
-		
+			
 	<!-- XML配置方式begin -->
 	<!-- 用于创建一个远程服务代理，一个引用可以指向多个注册中心 -->
 	<!-- 声明服务引用，与服务声明接口类型一致 -->
