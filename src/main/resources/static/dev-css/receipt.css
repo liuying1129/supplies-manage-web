@@ -1,20 +1,16 @@
-#myModal input[type="text"] {
+#receiptModal input[type="text"] {
 	
 	width: 100%;
 }
 
-img[alt="任务状态"] {
-
-    cursor: pointer;
-}
-
-img[alt="新增定时任务"] {
-    position: absolute;/* 层模型->绝对定位 */
+img[alt="新增入库记录"] {
+    /* position: absolute; */ /* 层模型->绝对定位 */
+    position: fixed;/* 层模型->固定定位,避免该悬浮按钮跟随滚动 */
     
     z-index: 99999;/* 置于最上层 */
 
     right: 10px;
-    top: 50px;
+    top: 55px;
 
     cursor: pointer;
 }
