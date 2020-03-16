@@ -44,10 +44,12 @@
 					<input type="text" id="vendor" placeholder="供应商" /><br />
 					<input type="text" id="djh" placeholder="单据号" /><br />
 					<input type="text" id="ph" placeholder="批号" /><br />
-					<input type="text" id="yxq" placeholder="有效期" /><br />
+					<!-- <input type="text" id="yxq" placeholder="有效期" /><br /> -->
+					<input class="Wdate" type="text" id="yxq" placeholder="有效期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" /><br />
 					<input type="text" id="sl" placeholder="数量" /><br />
 					<input type="text" id="dw" placeholder="单位" />
-					<input type="text" id="rkrq" placeholder="入库日期" />
+					<!-- <input type="text" id="rkrq" placeholder="入库日期" /> -->
+					<input class="Wdate" type="text" id="rkrq" placeholder="入库日期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false,readOnly:true})" />
 				</div>
 				<div class="modal-footer">
 					<button id="btnSave" type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
@@ -62,6 +64,8 @@
     <script src="../bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Bootstrap Table -->
     <script src="../bootstrap-table/bootstrap-table.min.js"></script>
+    
+    <script src="../My97DatePicker/WdatePicker.js"></script>
     
 	<script src="../dev-js/receipt.js"></script>
 </body>

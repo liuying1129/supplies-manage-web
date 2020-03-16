@@ -1,5 +1,9 @@
 package com.yklis.suppliesmanageweb.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.yklis.suppliesmanage.entity.ReceiptEntity;
 import com.yklis.suppliesmanage.inf.SuppliesManageService;
 
 @RestController
@@ -45,5 +50,54 @@ public class HomeController {
     	String unid = request.getParameter("unid");
     	    	    	 
     	return suppliesManageService.deleteReceipt(unid);
-    }   
+    }
+    
+    @RequestMapping("static/saveReceipt")
+    public String saveReceipt(HttpServletRequest request,HttpServletResponse response) {
+    	  	
+    	String unid = request.getParameter("unid");
+    	String sjunid = request.getParameter("sjunid");
+    	String vendor = request.getParameter("vendor");
+    	String djh = request.getParameter("djh");
+    	String ph = request.getParameter("ph");
+    	String yxq = request.getParameter("yxq");
+    	String sl = request.getParameter("sl");
+    	String dw = request.getParameter("dw");
+    	String rkrq = request.getParameter("rkrq");
+    	
+    	DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    	
+    	ReceiptEntity receiptEntity = new ReceiptEntity();
+    	receiptEntity.setSjunid(Integer.parseInt(sjunid));
+    	receiptEntity.setVendor(vendor);
+    	receiptEntity.setDjh(djh);
+    	receiptEntity.setPh(ph);
+    	
+    	LocalDate dateYxq = null;
+    	try {
+    		dateYxq = LocalDate.parse(yxq,dateTimeFormatter);
+        	receiptEntity.setYxq(dateYxq);
+    	} catch (DateTimeParseException e) {
+        	receiptEntity.setYxq(null);
+    	}
+    	
+    	receiptEntity.setSl(Integer.parseInt(sl));
+    	receiptEntity.setDw(dw);
+    	
+    	LocalDate dateRkrq = null;
+    	try {
+    		dateRkrq = LocalDate.parse(rkrq,dateTimeFormatter);
+        	receiptEntity.setRkrq(dateRkrq);
+    	} catch (DateTimeParseException e) {
+        	receiptEntity.setRkrq(null);
+    	}
+    	    	    	 
+    	if((unid==null)||("".equals(unid))){
+    		
+    		return suppliesManageService.insertReceipt(receiptEntity);
+    	}else {
+        	receiptEntity.setUnid(Integer.parseInt(unid));
+    		return suppliesManageService.updateReceipt(receiptEntity);
+    	}
+    }
 }
