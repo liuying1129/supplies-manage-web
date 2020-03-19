@@ -100,4 +100,31 @@ public class HomeController {
     		return suppliesManageService.updateReceipt(receiptEntity);
     	}
     }
+    
+    @RequestMapping("static/loadSJ_JBXX")
+    public String loadSJ_JBXX(HttpServletRequest request,HttpServletResponse response) {
+    	    	    	    	 
+    	return suppliesManageService.loadSJ_JBXX();
+    }
+    
+    @RequestMapping("static/loadSJ_Pack")
+    public String loadSJ_Pack(HttpServletRequest request,HttpServletResponse response) {
+    	    	    	    	 
+    	String sjunid = request.getParameter("sjunid");
+    	
+    	return suppliesManageService.loadSJ_Pack(sjunid);
+    }
+    
+    @RequestMapping("static/queryReceiptList")
+    public String queryReceiptList(HttpServletRequest request,HttpServletResponse response) {
+    	    	    	    	     	
+    	return suppliesManageService.queryReceiptList();
+    }
+    
+    @RequestMapping("static/audit")
+    public String audit(HttpServletRequest request,HttpServletResponse response) {
+    	    	    	    	     	
+    	String unid = request.getParameter("unid");
+    	return suppliesManageService.audit(unid);
+    }
 }
