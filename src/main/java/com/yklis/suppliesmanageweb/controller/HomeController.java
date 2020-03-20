@@ -118,7 +118,9 @@ public class HomeController {
     @RequestMapping("static/queryReceiptList")
     public String queryReceiptList(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	     	
-    	return suppliesManageService.queryReceiptList();
+    	String rkrqRadioValue = request.getParameter("rkrq");
+    	
+    	return suppliesManageService.queryReceiptList(rkrqRadioValue);
     }
     
     @RequestMapping("static/audit")
@@ -126,5 +128,11 @@ public class HomeController {
     	    	    	    	     	
     	String unid = request.getParameter("unid");
     	return suppliesManageService.audit(unid);
+    }
+    
+    @RequestMapping("static/queryInventoryList")
+    public String queryInventoryList(HttpServletRequest request,HttpServletResponse response) {
+    	    	    	    	     	
+    	return suppliesManageService.queryInventoryList();
     }
 }

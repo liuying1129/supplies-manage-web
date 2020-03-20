@@ -1,0 +1,9 @@
+img[alt="出库"] {
+
+    cursor: pointer;
+}
+
+#inventoryModal input[type="text"] {
+	
+	width: 100%;
+}
