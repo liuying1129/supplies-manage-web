@@ -113,6 +113,9 @@ function queryReceiptList(rkrqRadioValue){
 			        field: 'RKRQ',
 			        title: '入库日期'
 			    }, {
+			        field: 'Memo',
+			        title: '备注'
+			    }, {
 			        field: 'Create_Date_Time',
 			        title: '创建时间'
 			    }, {

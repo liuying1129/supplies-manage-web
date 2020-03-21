@@ -43,18 +43,24 @@
 				</div>
 				<div class="modal-body">
 				    <span id="unid">唯一编号</span><br />
-					<!-- <input type="text" id="sjunid" placeholder="耗材唯一编号" /><br /> -->
+				    <strong>选择耗材(必填):</strong><br />
 				    <select id="sjunid" style="width:100%"></select>
-					<input type="text" id="vendor" placeholder="供应商" /><br />
-					<input type="text" id="djh" placeholder="单据号" /><br />
-					<input type="text" id="ph" placeholder="批号" /><br />
-					<!-- <input type="text" id="yxq" placeholder="有效期" /><br /> -->
-					<input class="Wdate" type="text" id="yxq" placeholder="有效期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" /><br />
-					<input type="text" id="sl" placeholder="数量" /><br />
-					<!-- <input type="text" id="dw" placeholder="单位" /> -->
+				    <strong>供应商:</strong><br />
+					<input type="text" id="vendor" placeholder="供应商" />
+					<strong>供应商送货单号:</strong><br />
+					<input type="text" id="djh" placeholder="单据号" />
+					<strong>批号:</strong><br />
+					<input type="text" id="ph" placeholder="批号" />
+					<strong>有效期:</strong><br />
+					<input class="Wdate" type="text" id="yxq" placeholder="有效期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" />
+					<strong>数量(必填):</strong><br />
+					<input type="text" id="sl" placeholder="数量" />
+					<strong>单位(必填):</strong><br />
 					<select id="dw" style="width:100%"></select>
-					<!-- <input type="text" id="rkrq" placeholder="入库日期" /> -->
+					<strong>入库日期(必填):</strong><br />
 					<input class="Wdate" type="text" id="rkrq" placeholder="入库日期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false,readOnly:true})" />
+					<strong>备注:</strong><br />
+					<input type="text" id="memo" placeholder="备注" />
 				</div>
 				<div class="modal-footer">
 					<button id="btnSave" type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
@@ -75,6 +81,8 @@
     <!-- select2 -->
     <!-- 如果select2.js在jquery.js之前加载,初始化函数select2()报错:select2 is not a function -->
     <script src="../select2/4.0.5/js/select2.min.js"></script>
+    
+    <script src="../dayjs/dayjs.min.js"></script>
     
 	<script src="../dev-js/receipt.js"></script>
 </body>

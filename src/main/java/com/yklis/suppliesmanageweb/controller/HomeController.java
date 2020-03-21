@@ -67,6 +67,7 @@ public class HomeController {
     	String sl = request.getParameter("sl");
     	String dw = request.getParameter("dw");
     	String rkrq = request.getParameter("rkrq");
+    	String memo = request.getParameter("memo");
     	
     	DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     	
@@ -75,6 +76,7 @@ public class HomeController {
     	receiptEntity.setVendor(vendor);
     	receiptEntity.setDjh(djh);
     	receiptEntity.setPh(ph);
+    	receiptEntity.setMemo(memo);
     	
     	LocalDate dateYxq = null;
     	try {

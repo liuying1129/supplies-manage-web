@@ -26,9 +26,6 @@ $(document).ready(function() {
 				
 			    data: data.response,
 		        columns: [{
-			        field: 'SJID',
-			        title: '耗材代码'
-			    }, {
 			        field: 'Name',
 			        title: '名称'
 			    }, {
@@ -64,6 +61,9 @@ $(document).ready(function() {
 			    }, {
 			        field: 'CKRQ',
 			        title: '出库日期'
+			    }, {
+			        field: 'Memo',
+			        title: '备注'
 			    }, {
 			        field: 'Create_Date_Time',
 			        title: '创建时间'

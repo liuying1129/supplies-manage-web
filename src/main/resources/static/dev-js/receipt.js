@@ -98,7 +98,7 @@ $(document).ready(function() {
 
 			data.response.forEach(function(element,index){
 				
-				sjjbxxSelect.append(new Option(element.SJId+"【"+element.Name+"】"+element.Model+","+element.GG+","+element.SCCJ+","+element.ApprovalNo,element.Unid));
+				sjjbxxSelect.append(new Option("【"+element.Name+"】"+element.Model+","+element.GG+","+element.SCCJ+","+element.ApprovalNo,element.Unid));
 			});
 		},
 		error : function(xhr, textStatus, errorThrown) {
@@ -129,7 +129,7 @@ $(document).ready(function() {
 			        title: '名称',
 			        formatter: function formatter(value, row, index, field) {
 			        	
-			        	return "<a href='#receiptModal' data-toggle='modal' data-title='修改' data-unid='"+row.Unid+"' data-sjunid='"+row.SJUnid+"' data-sjid='"+row.SJID+"' data-name='"+row.Name+"' data-model='"+row.Model+"' data-gg='"+row.GG+"' data-sccj='"+row.SCCJ+"' data-approvalno='"+row.ApprovalNo+"' data-vendor='"+row.Vendor+"' data-djh='"+row.DJH+"' data-ph='"+row.PH+"' data-yxq='"+row.YXQ+"' data-sl='"+row.SL+"' data-dw='"+row.DW+"' data-rkrq='"+row.RKRQ+"'>" + value + "</a>";
+			        	return "<a href='#receiptModal' data-toggle='modal' data-title='修改' data-unid='"+row.Unid+"' data-sjunid='"+row.SJUnid+"' data-sjid='"+row.SJID+"' data-name='"+row.Name+"' data-model='"+row.Model+"' data-gg='"+row.GG+"' data-sccj='"+row.SCCJ+"' data-approvalno='"+row.ApprovalNo+"' data-vendor='"+row.Vendor+"' data-djh='"+row.DJH+"' data-ph='"+row.PH+"' data-yxq='"+row.YXQ+"' data-sl='"+row.SL+"' data-dw='"+row.DW+"' data-memo='"+row.Memo+"' data-rkrq='"+row.RKRQ+"'>" + value + "</a>";
 			        }
 			    }, {
 			        field: 'Model',
@@ -167,6 +167,9 @@ $(document).ready(function() {
 			    }, {
 			        field: 'RKRQ',
 			        title: '入库日期'
+			    }, {
+			        field: 'Memo',
+			        title: '备注'
 			    }, {
 			        field: 'Create_Date_Time',
 			        title: '创建时间'
@@ -210,7 +213,8 @@ $(document).ready(function() {
 		document.getElementById("yxq").value = (typeof modal_relatedTarget.data("yxq")=="undefined")||(modal_relatedTarget.data("yxq")==="undefined")?"":modal_relatedTarget.data("yxq");
 		document.getElementById("sl").value = typeof modal_relatedTarget.data("sl")=="undefined"?"":modal_relatedTarget.data("sl");
 		loadSJ_Pack($('#sjunid').val(),global_dw);//加载所选试剂的唯一编号
-		document.getElementById("rkrq").value = typeof modal_relatedTarget.data("rkrq")=="undefined"?"":modal_relatedTarget.data("rkrq");
+		document.getElementById("rkrq").value = typeof modal_relatedTarget.data("rkrq")=="undefined"?dayjs().format("YYYY-MM-DD"):modal_relatedTarget.data("rkrq");
+		document.getElementById("memo").value = typeof modal_relatedTarget.data("memo")=="undefined"?"":modal_relatedTarget.data("memo");
 	    //alert(JSON.stringify($('#myModal').data()));
 	})
 	
@@ -233,6 +237,7 @@ btnSave.onclick = function() {
 	var sl = document.getElementById("sl").value;
 	var dw = $('#dw').val();
 	var rkrq = document.getElementById("rkrq").value;
+	var memo = document.getElementById("memo").value;
 	
 	if(typeof sjunid == "undefined"||sjunid ==null||sjunid.length == 0){
 		
@@ -273,7 +278,7 @@ btnSave.onclick = function() {
 		//默认值: "application/x-www-form-urlencoded"。发送信息至服务器时内容编码类型
 		//默认值适合大多数情况。如果你明确指定$.ajax()的 content-type,那么它必定会发送给服务器（即使没有数据要发送）
 		//contentType : "application/x-www-form-urlencoded",//application/json
-		url : 'saveReceipt?unid='+unid+'&sjunid='+sjunid+'&vendor='+vendor+'&djh='+djh+'&ph='+ph+'&yxq='+yxq+'&sl='+sl+'&dw='+dw+'&rkrq='+rkrq,
+		url : 'saveReceipt?unid='+unid+'&sjunid='+sjunid+'&vendor='+vendor+'&djh='+djh+'&ph='+ph+'&yxq='+yxq+'&sl='+sl+'&dw='+dw+'&rkrq='+rkrq+'&memo='+memo,
 		//预期服务器返回的数据类型。如果不指定，jQuery将自动根据 HTTP包 MIME信息来智能判断
 		dataType : 'json',
 		success : function(data) {			
