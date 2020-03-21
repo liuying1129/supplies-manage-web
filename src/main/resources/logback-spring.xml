@@ -25,7 +25,7 @@
         
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">            
             <!-- 日志归档 -->
-            <fileNamePattern>${LOG_HOME}/YkSchedule.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/supplies-manage-web.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
