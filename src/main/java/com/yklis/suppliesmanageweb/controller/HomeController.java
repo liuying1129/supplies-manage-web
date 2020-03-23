@@ -175,4 +175,10 @@ public class HomeController {
     	    	    	    	     	
     	return suppliesManageService.queryOutputList();
     }
+    
+    @RequestMapping(value = "static/querySqsydw")
+    public String querySqsydw() {
+                
+    	return suppliesManageService.querySqsydw();
+    }
 }

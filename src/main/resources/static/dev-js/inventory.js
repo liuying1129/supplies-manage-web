@@ -97,9 +97,11 @@ $(document).ready(function() {
 		var modal_relatedTarget = $(e.relatedTarget);
 						
 		document.getElementById("unid").innerHTML = modal_relatedTarget.data("unid");		
+		document.getElementById("ckrq").value = dayjs().format("YYYY-MM-DD");
 		
 		var sjunid = modal_relatedTarget.data("sjunid");
 		var dw = modal_relatedTarget.data("dw");
+		
 				
 		$.ajax({
 			//默认值: true。如果需要发送同步请求，请将此选项设置为 false。注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行
@@ -135,11 +137,7 @@ var btnSave = document.getElementById("btnSave");
 btnSave.onclick = function() {
 	
 	var unid = document.getElementById("unid").innerHTML;
-	//var sjunid = $('#sjunid').val();
 	var rlr =document.getElementById("rlr").value;
-	//var djh = document.getElementById("djh").value;
-	//var ph = document.getElementById("ph").value;
-	//var yxq = document.getElementById("yxq").value;
 	var sl = document.getElementById("sl").value;
 	var dw = $('#dw').val();
 	var ckrq = document.getElementById("ckrq").value;

@@ -42,10 +42,15 @@
 				</div>
 				<div class="modal-body">
 				    <span id="unid">唯一编号</span><br />
-					<input type="text" id="rlr" placeholder="领料人" /><br />
-					<input type="text" id="sl" placeholder="数量" /><br />
+				    <strong>领料人(必填):</strong><br />
+					<input type="text" id="rlr" placeholder="领料人" />
+					<strong>数量(必填):</strong><br />
+					<input type="text" id="sl" placeholder="数量" />
+					<strong>单位(必填):</strong><br />
 					<select id="dw" style="width:100%"></select>
+					<strong>出库日期(必填):</strong><br />
 					<input class="Wdate" type="text" id="ckrq" placeholder="出库日期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false,readOnly:true})" />
+					<strong>备注:</strong><br />
 					<input type="text" id="memo" placeholder="备注" /><br />
 				</div>
 				<div class="modal-footer">
@@ -67,6 +72,8 @@
     <!-- select2 -->
     <!-- 如果select2.js在jquery.js之前加载,初始化函数select2()报错:select2 is not a function -->
     <script src="../select2/4.0.5/js/select2.min.js"></script>
+    
+    <script src="../dayjs/dayjs.min.js"></script>
         
 	<script src="../dev-js/inventory.js"></script>
 </body>
