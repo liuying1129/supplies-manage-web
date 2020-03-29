@@ -14,12 +14,7 @@ import org.springframework.context.annotation.ImportResource;
  *
  */
 @SpringBootApplication
-//不影响默认配置文件的读取
-//@PropertySource(value = {"file:/ykschedule-cfg/jdbc.properties"})
-//扫描指定包中的Mybatis接口，然后创建各自接口的动态代理类
-//@MapperScan(value = {"com.yklis.schedule.dao"})
-//@Import({DynamicDataSourceRegister.class})
-@ImportResource(value = {"classpath:dubbo-consumer.xml"})
+@ImportResource(locations = {"classpath:dubbo-consumer.xml","classpath:kaptchaConfig.xml"})
 public class SuppliesManageWebApplication {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
