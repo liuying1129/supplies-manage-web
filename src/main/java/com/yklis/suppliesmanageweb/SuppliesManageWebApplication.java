@@ -1,7 +1,5 @@
 package com.yklis.suppliesmanageweb;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
@@ -17,7 +15,7 @@ import org.springframework.context.annotation.ImportResource;
 @ImportResource(locations = {"classpath:dubbo-consumer.xml","classpath:kaptchaConfig.xml"})
 public class SuppliesManageWebApplication {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    //private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public static void main(String[] args) {
     	

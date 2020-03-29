@@ -61,6 +61,7 @@ public class LoginFilter implements Filter {
           ||(req.getRequestURI().indexOf("/jquery/") >= 0)
           ||(req.getRequestURI().indexOf("/My97DatePicker/") >= 0)
           ||(req.getRequestURI().indexOf("/select2/") >= 0)
+          //||("/favicon.ico".equals(req.getRequestURI()))
           ||("/animate.min.css".equals(req.getRequestURI()))){
             //chain.doFilter表示放过去，不做处理
             chain.doFilter(request, response);
@@ -85,9 +86,11 @@ public class LoginFilter implements Filter {
         if(null!=session){
             
             Object o2 = session.getAttribute("suppliesmanageweb.isLogin");
+            logger.info("LoginFilter suppliesmanageweb.isLogin的值o2："+o2);
             if(null != o2) {
                 
                 boolean b2 = (boolean) o2;
+                logger.info("LoginFilter suppliesmanageweb.isLogin的值b2："+b2);
                         
                 if(b2) {                
                     chain.doFilter(request, response);

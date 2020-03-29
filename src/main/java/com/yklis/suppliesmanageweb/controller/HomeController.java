@@ -231,6 +231,8 @@ public class HomeController {
         //该session值用于标识是否成功登录
         session.setAttribute("suppliesmanageweb.isLogin", true);
 		
+        logger.info("cookieRequest的值:"+cookieRequest);
+        
         if("".equals(cookieRequest)||(null==cookieRequest)){
             
             Map<String, Object> mapResponse = new HashMap<>();
@@ -284,7 +286,7 @@ public class HomeController {
             session.invalidate();
         }
 
-        Cookie cookie2 = new Cookie("yklis.request",null);
+        Cookie cookie2 = new Cookie("suppliesmanageweb.request",null);
         cookie2.setMaxAge(0);
         response.addCookie(cookie2);
     	
