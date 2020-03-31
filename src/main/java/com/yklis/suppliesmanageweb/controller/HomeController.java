@@ -192,7 +192,7 @@ public class HomeController {
             //如required设置为true,则地址栏中访问http://localhost:8080/YkLis/login时,因校验不通过,页面报错
             @RequestParam(value = "account",required = false) String account,
             @RequestParam(value = "password",required = false) String password,
-            @CookieValue(value = "suppliesmanageweb.request",required = false) String cookieRequest) {
+            @CookieValue(value = "smw.request",required = false) String cookieRequest) {
     	    	    	    	
     	//获取生成的验证码
     	//String verifyCodeExpected = (String)request.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
@@ -226,14 +226,14 @@ public class HomeController {
 		//true:若存在会话则返回该会话,否则新建一个会话
 		//false:若存在会话则返回该会话,否则返回NULL
 		HttpSession session = request.getSession(true);//参数默认值:true
-        //该session值用于header.jsp中显示
-        session.setAttribute("suppliesmanageweb.account", account);
+        //该session值用于:1、header.html中显示,2、判断是否成功登录
+        session.setAttribute("smw.account", account);
         //该session值用于标识是否成功登录
-        session.setAttribute("suppliesmanageweb.isLogin", true);
+        //session.setAttribute("smw.isLogin", true);
 		
         logger.info("cookieRequest的值:"+cookieRequest);
         
-        if("".equals(cookieRequest)||(null==cookieRequest)){
+        //if("".equals(cookieRequest)||(null==cookieRequest)){
             
             Map<String, Object> mapResponse = new HashMap<>();
             mapResponse.put("id", -1);
@@ -244,7 +244,7 @@ public class HomeController {
             map.put("response", mapResponse);
             
             return JSON.toJSONString(map);
-        }else{
+        /*}else{
             
             Cookie cookie2 = new Cookie("suppliesmanageweb.request",null);
             cookie2.setMaxAge(0);
@@ -262,20 +262,7 @@ public class HomeController {
             map.put("response", mapResponse);
             
             return JSON.toJSONString(map);
-        }    	
-    }
-    
-    @RequestMapping("static/querySessionAccount")
-    public String querySessionAccount(HttpServletRequest request) {
-        
-        String s2 = null;
-        
-        HttpSession session = request.getSession(false);
-        if(null!=session){
-            s2 = (String) session.getAttribute("suppliesmanageweb.account");
-        }                
-        
-        return s2;
+        }*/    	
     }
     
     @RequestMapping("static/logout")
@@ -286,7 +273,7 @@ public class HomeController {
             session.invalidate();
         }
 
-        Cookie cookie2 = new Cookie("suppliesmanageweb.request",null);
+        Cookie cookie2 = new Cookie("smw.request",null);
         cookie2.setMaxAge(0);
         response.addCookie(cookie2);
     	
@@ -296,5 +283,18 @@ public class HomeController {
 			
             logger.error("方法logout的response.sendRedirect失败:"+e.toString());
 		}
+    }
+    
+    @RequestMapping("static/querySessionAccount")
+    public String querySessionAccount(HttpServletRequest request) {
+        
+        String s2 = null;
+        
+        HttpSession session = request.getSession(false);
+        if(null!=session){
+            s2 = (String) session.getAttribute("smw.account");
+        }                
+        
+        return s2;
     }
 }

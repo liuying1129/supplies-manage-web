@@ -68,12 +68,12 @@ public class LoginFilter implements Filter {
             return;
         }
         
-        if (("/static/login.html".equals(req.getRequestURI()))
-          ||("/".equals(req.getRequestURI()))
+        if (("/".equals(req.getRequestURI()))
           ||("/index.html".equals(req.getRequestURI()))
           ||("/static/header.html".equals(req.getRequestURI()))
           ||("/static/querySqsydw".equals(req.getRequestURI()))
           ||("/static/querySessionAccount".equals(req.getRequestURI()))
+          ||("/static/login.html".equals(req.getRequestURI()))
           ||("/static/login".equals(req.getRequestURI()))){
             //chain.doFilter表示放过去，不做处理
             chain.doFilter(request, response);
@@ -83,16 +83,17 @@ public class LoginFilter implements Filter {
         //suppliesmanageweb.isLogin为true,表示已经成功登录的情况
         HttpServletRequest httpRequest = (HttpServletRequest)request;
         HttpSession session = httpRequest.getSession(false);//参数默认值:true
+        if(null==session) logger.info("LoginFilter session为空");
         if(null!=session){
             
-            Object o2 = session.getAttribute("suppliesmanageweb.isLogin");
+            Object o2 = session.getAttribute("smw.account");
             logger.info("LoginFilter suppliesmanageweb.isLogin的值o2："+o2);
             if(null != o2) {
                 
-                boolean b2 = (boolean) o2;
+            	String b2 = (String) o2;
                 logger.info("LoginFilter suppliesmanageweb.isLogin的值b2："+b2);
                         
-                if(b2) {                
+                if((null!=b2)&&(!"".equals(b2))) {                
                     chain.doFilter(request, response);
                     return;
                 }                
@@ -102,7 +103,7 @@ public class LoginFilter implements Filter {
     	logger.info("LoginFilter的doFilter方法2:"+req.getRequestURI());
     	
         //记录请求地址,以便登录成功后可以跳转到相应的页面
-        Cookie cookie3 = new Cookie("suppliesmanageweb.request",req.getRequestURI());
+        Cookie cookie3 = new Cookie("smw.request",req.getRequestURI());
         res.addCookie(cookie3);
         
         res.sendRedirect("/static/login.html");
