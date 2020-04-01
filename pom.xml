@@ -97,15 +97,22 @@
 		    <version>2.3.2</version>
 		</dependency>
 		
-		<!-- <dependency>
+		<!-- spring-session需要连接数据源 -->
+		<dependency>
+		    <groupId>com.mchange</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.5.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sourceforge.jtds</groupId>
+			<artifactId>jtds</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-jdbc</artifactId>
-		</dependency> -->
-		
-		<!-- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
- 		</dependency> -->
+		</dependency>
 	</dependencies>
 
 	<build>

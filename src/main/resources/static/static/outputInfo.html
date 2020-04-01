@@ -35,6 +35,17 @@
 
   <!-- iframe嵌入页面header.html -->
   <iframe id="headerIframe" src="header.html" frameborder="0" width="100%" height="55"></iframe>
+
+    <strong>出库日期:</strong>
+    <input type="radio" value="0"  name="ckrq" id="ckrqWeek" onchange="queryOutputList(0)" checked />
+    <!-- Bootstrap写了label加粗的样式,故行内重写样式(经测试,写在外部CSS文件中不行) -->
+    <label style="font-weight:normal;" for="ckrqWeek">最近一周</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" value="1"  name="ckrq" id="ckrqMonth" onchange="queryOutputList(1)" />
+    <label style="font-weight:normal;" for="ckrqMonth">最近一月</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" value="2"  name="ckrq" id="ckrq3Month" onchange="queryOutputList(2)"  />
+    <label style="font-weight:normal;" for="ckrq3Month">最近三月</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" value="3"  name="ckrq" id="ckrqUnlimited" onchange="queryOutputList(3)"  />
+    <label style="font-weight:normal;" for="ckrqUnlimited">不限</label><br />	  
   
 	<table id="outputList"></table>
 	
