@@ -317,4 +317,12 @@ public class HomeController {
 		responseOutputStream.flush();
 		responseOutputStream.close();
 	}
+	
+    @RequestMapping(value = "static/inventorySplit")
+    public String inventorySplit(HttpServletRequest request) {
+                
+    	String unid = request.getParameter("unid");
+
+    	return suppliesManageService.inventorySplit(unid);
+    }
 }

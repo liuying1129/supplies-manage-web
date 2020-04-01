@@ -3,7 +3,20 @@ img[alt="出库"] {
     cursor: pointer;
 }
 
+img[alt="拆分"] {
+
+    cursor: pointer;
+}
+
 #inventoryModal input[type="text"] {
 	
 	width: 100%;
+}
+
+th{
+    background-color: yellow;
+}
+
+tr:nth-of-type(even){
+    background-color: #a4c2f4;
 }

@@ -2,3 +2,11 @@ img[alt="审核"] {
 
     cursor: pointer;
 }
+
+th{
+    background-color: yellow;
+}
+
+tr:nth-of-type(even){
+    background-color: #a4c2f4;
+}
