@@ -101,7 +101,7 @@ $(document).ready(function() {
 				document.getElementById("hrefAccount").setAttribute("aria-haspopup","true");
 				document.getElementById("hrefAccount").setAttribute("aria-expanded","false");
 				$('#hrefAccount').parent('li').attr('class', 'dropdown');
-				$('#hrefAccount').parent('li').append('<ul class="dropdown-menu"><li><a href="logout">注销</a></li><li role="separator" class="divider"></li><li><a href="goModifyPwd">修改密码</a></li></ul>');
+				$('#hrefAccount').parent('li').append('<ul class="dropdown-menu"><li><a href="logout">注销</a></li><li role="separator" class="divider"></li><li><a href="modifyPwd.html">修改密码</a></li></ul>');
 			}else{
 				document.getElementById("hrefAccount").innerHTML = "登录";
 				document.getElementById("hrefAccount").setAttribute("href","login.html");

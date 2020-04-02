@@ -325,4 +325,64 @@ public class HomeController {
 
     	return suppliesManageService.inventorySplit(unid);
     }
+    
+    @RequestMapping("static/modifyPwd")
+    public String modifyPwd(HttpServletRequest request) {
+    	
+    	String account = querySessionAccount(request);
+
+        String oldPwd = request.getParameter("oldPwd");
+        String newPwd = request.getParameter("newPwd");
+        String confirmPwd = request.getParameter("confirmPwd");
+        
+    	if(!suppliesManageService.login(account, oldPwd)) {
+    		
+            Map<String, Object> mapResponse = new HashMap<>();
+            mapResponse.put("errorCode", -123);
+            mapResponse.put("errorMsg", "原密码错误!");
+            
+            Map<String, Object> map = new HashMap<>();
+            map.put("success", false);
+            map.put("response", mapResponse);
+            
+            return JSON.toJSONString(map);
+        }
+        
+        if(!newPwd.equals(confirmPwd)){
+            
+            Map<String, Object> mapResponse = new HashMap<>();
+            mapResponse.put("errorCode", -123);
+            mapResponse.put("errorMsg", "两次输入的新密码不一致!");
+            
+            Map<String, Object> map = new HashMap<>();
+            map.put("success", false);
+            map.put("response", mapResponse);
+            
+            return JSON.toJSONString(map);            
+        }
+                
+        if(suppliesManageService.modifyPwd(account, newPwd)){
+        
+            Map<String, Object> mapResponse = new HashMap<>();
+            mapResponse.put("id", -1);
+            mapResponse.put("msg", "密码修改成功!");
+            
+            Map<String, Object> map = new HashMap<>();
+            map.put("success", true);
+            map.put("response", mapResponse);
+            
+            return JSON.toJSONString(map);
+        }else{
+            
+            Map<String, Object> mapResponse = new HashMap<>();
+            mapResponse.put("errorCode", -123);
+            mapResponse.put("errorMsg", "密码修改失败!");
+            
+            Map<String, Object> map = new HashMap<>();
+            map.put("success", false);
+            map.put("response", mapResponse);
+            
+            return JSON.toJSONString(map);
+        }
+    }
 }
