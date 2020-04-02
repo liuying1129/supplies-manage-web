@@ -11,23 +11,6 @@ import org.springframework.context.annotation.PropertySource;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
-/**
- *   <bean id="dataSource_master" class="com.mchange.v2.c3p0.ComboPooledDataSource">
- *       <property name="driverClass" value="${jdbc.driverClass}"></property>
- *       <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
- *       <property name="user" value="${jdbc.user}"></property>
- *       <property name="password" value="${jdbc.password}"></property>
- *       <property name="initialPoolSize" value="${jdbc.pool.initialPoolSize}"></property>
- *       <property name="maxIdleTime" value="${jdbc.pool.maxIdleTime}"></property>
- *       <property name="maxPoolSize" value="${jdbc.pool.maxPoolSize}"></property>
- *       <property name="minPoolSize" value="${jdbc.pool.minPoolSize}"></property>
- *       <property name="checkoutTimeout" value="${jdbc.pool.checkoutTimeout}"></property>
- *   </bean>
- * @author liuyi
- * 
- * 该数据源配置暂时只给Spring-session使用
- *
- */
 @Configuration
 //不影响默认配置文件的读取
 @PropertySource(value = {"file:/supplies-manage-cfg/jdbc.properties"})
@@ -55,6 +38,23 @@ public class DataSourceConfig {
     @Value("${jdbc.pool.checkoutTimeout}")
     private int checkoutTimeout;
 	
+    /**
+     *   <bean id="dataSource_master" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+     *       <property name="driverClass" value="${jdbc.driverClass}"></property>
+     *       <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+     *       <property name="user" value="${jdbc.user}"></property>
+     *       <property name="password" value="${jdbc.password}"></property>
+     *       <property name="initialPoolSize" value="${jdbc.pool.initialPoolSize}"></property>
+     *       <property name="maxIdleTime" value="${jdbc.pool.maxIdleTime}"></property>
+     *       <property name="maxPoolSize" value="${jdbc.pool.maxPoolSize}"></property>
+     *       <property name="minPoolSize" value="${jdbc.pool.minPoolSize}"></property>
+     *       <property name="checkoutTimeout" value="${jdbc.pool.checkoutTimeout}"></property>
+     *   </bean>
+     * @author liuyi
+     * 
+     * 该数据源配置暂时只给Spring-session使用
+     *
+     */
 	@Bean
     public ComboPooledDataSource dataSource(){
 		

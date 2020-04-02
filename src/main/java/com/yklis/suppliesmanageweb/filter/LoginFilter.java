@@ -58,7 +58,6 @@ public class LoginFilter implements Filter {
           ||(req.getRequestURI().indexOf("/jquery/") >= 0)
           ||(req.getRequestURI().indexOf("/My97DatePicker/") >= 0)
           ||(req.getRequestURI().indexOf("/select2/") >= 0)
-          //||("/favicon.ico".equals(req.getRequestURI()))
           ||("/animate.min.css".equals(req.getRequestURI()))){
             //chain.doFilter表示放过去，不做处理
             chain.doFilter(request, response);
