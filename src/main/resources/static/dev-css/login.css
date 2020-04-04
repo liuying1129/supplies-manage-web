@@ -53,18 +53,11 @@ body {
 #slick-login input:first-child {
     margin-top: 0px;
 }
- 
-#btnLogin {
-	
-	width: 220px;
+
+#slick-login input[type="button"] {
+    width: 100%;
     height: 50px;
-    position: absolute;
-    left: 50%;
-    top: 63%;
-    margin-left: -110px;
-    
-    /* margin-top: -75px; */
-    
+    margin-top: 7px;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
@@ -82,17 +75,17 @@ body {
      
     cursor: pointer;
 }
- 
-#btnLogin:hover {
-    background-color: #5f73e9;
+
+#slick-login input[type="button"]:hover {
+	background-color: #5f73e9;
  
     -webkit-box-shadow: inset 0px 1px 0px #aab9f4;
     box-shadow: inset 0px 1px 0px #aab9f4;
     margin-top: 10px;
 }
 
-#btnLogin:active {
-    background-color: #7588e1;
+#slick-login input[type="button"]:active {
+	background-color: #7588e1;
  
     -webkit-box-shadow: inset 0px 1px 0px #93a9e9;
     box-shadow: inset 0px 1px 0px #93a9e9;

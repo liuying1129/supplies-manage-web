@@ -5,11 +5,7 @@
 	//4、为未来新版本的Javascript做好铺垫
     "use strict";
 
-if(!window.localStorage){
-	alert("浏览器不支持localStorage");
-}
-
-function login(){
+function modifyPwd(){
 	
 	$.ajax({
 		//默认值: true。如果需要发送同步请求，请将此选项设置为 false。注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行
@@ -19,15 +15,15 @@ function login(){
 		//默认值: "application/x-www-form-urlencoded"。发送信息至服务器时内容编码类型
 		//默认值适合大多数情况。如果你明确指定$.ajax()的 content-type,那么它必定会发送给服务器（即使没有数据要发送）
 		//contentType : "application/x-www-form-urlencoded",//application/json
-		url : 'login',
+		url : 'modifyPwd',
 		//serialize()方法将表单内容序列化为字符串(标准 URL编码表示的文本字符串)。操作对象是代表表单元素集合的 jQuery对象。必须给input加name属性
-		data : $("#slick-login").serialize(),
+		data : $("#formModifyPwd").serialize(),
 		//预期服务器返回的数据类型。如果不指定，jQuery将自动根据 HTTP包 MIME信息来智能判断
 		dataType : 'json',
 		success : function(data) {						
 						
 			if(data.success){
-				window.location.href=data.response.msg;
+				window.location.href="modifyPwdSucc.html";
 			}else{
 				$("div[role='alert']").attr("class","alert alert-danger");
 				$("div[role='alert']").html(data.response.errorMsg);
@@ -35,7 +31,7 @@ function login(){
 		},
 		error : function(xhr, textStatus, errorThrown) {
 			
-			console.log("ajax请求失败,请求:login,状态码:"+xhr.status +",状态说明:"+ textStatus+",xhr readyState:"+xhr.readyState);
+			console.log("ajax请求失败,请求:modifyPwd,状态码:"+xhr.status +",状态说明:"+ textStatus+",xhr readyState:"+xhr.readyState);
 		}
 	});
 }

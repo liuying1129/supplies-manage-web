@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -202,8 +201,7 @@ public class HomeController {
             HttpServletResponse response,
             //如required设置为true,则地址栏中访问http://localhost:8080/YkLis/login时,因校验不通过,页面报错
             @RequestParam(value = "account",required = false) String account,
-            @RequestParam(value = "password",required = false) String password,
-            @CookieValue(value = "smw.request",required = false) String cookieRequest) {
+            @RequestParam(value = "password",required = false) String password) {
     	    	    	    	
     	//获取生成的验证码
     	String verifyCodeExpected = (String)request.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
