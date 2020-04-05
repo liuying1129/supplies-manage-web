@@ -29,8 +29,8 @@ function login(){
 			if(data.success){
 				window.location.href=data.response.msg;
 			}else{
-				$("div[role='alert']").attr("class","alert alert-danger");
-				$("div[role='alert']").html(data.response.errorMsg);
+				document.querySelector("div[role='alert']").setAttribute("class","alert alert-danger");
+				document.querySelector("div[role='alert']").innerHTML = data.response.errorMsg;
 			}
 		},
 		error : function(xhr, textStatus, errorThrown) {
