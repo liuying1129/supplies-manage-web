@@ -150,7 +150,10 @@ public class HomeController {
     @RequestMapping("static/queryInventoryList")
     public String queryInventoryList(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	     	
-    	return suppliesManageService.queryInventoryList();
+    	String hcName = request.getParameter("hcName");
+    	String vendor = request.getParameter("vendor");
+
+    	return suppliesManageService.queryInventoryList(hcName,vendor);
     }
     
     @RequestMapping("static/outputInventory")

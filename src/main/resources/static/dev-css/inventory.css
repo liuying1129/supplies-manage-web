@@ -20,3 +20,8 @@ th{
 tr:nth-of-type(even){
     background-color: #a4c2f4;
 }
+
+#formQueryInventory {
+	
+	margin-bottom: 7px;
+}
