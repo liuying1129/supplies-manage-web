@@ -48,26 +48,67 @@
 					</button>
 					<h4 class="modal-title" id="receiptModalTitle"></h4>											
 				</div>
-				<div class="modal-body">
-				    <span id="unid">唯一编号</span><br />
-				    <strong>选择耗材(必填):</strong><br />
-				    <select id="sjunid" style="width:100%"></select>
-				    <strong>供应商:</strong><br />
-					<input type="text" id="vendor" placeholder="供应商" />
-					<strong>供应商送货单号:</strong><br />
-					<input type="text" id="djh" placeholder="单据号" />
-					<strong>批号:</strong><br />
-					<input type="text" id="ph" placeholder="批号" />
-					<strong>有效期:</strong><br />
-					<input class="Wdate" type="text" id="yxq" placeholder="有效期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" />
-					<strong>数量(必填):</strong><br />
-					<input type="text" id="sl" placeholder="数量" />
-					<strong>单位(必填):</strong><br />
-					<select id="dw" style="width:100%"></select>
-					<strong>入库日期(必填):</strong><br />
-					<input class="Wdate" type="text" id="rkrq" placeholder="入库日期" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false,readOnly:true})" />
-					<strong>备注:</strong><br />
-					<input type="text" id="memo" placeholder="备注" />
+				<div class="modal-body">					
+					<form class="form-horizontal">
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label">入库唯一编号</label>
+					    <span id="unid" class="col-sm-9 control-label" style="text-align:left"></span>
+					  </div>
+					  <div class="form-group">
+					    <label for="sjunid" class="col-sm-3 control-label">选择耗材(必填)</label>
+					    <div class="col-sm-9">
+					      <select id="sjunid" class="form-control" style="width:100%"></select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="vendor" class="col-sm-3 control-label">供应商</label>
+					    <div class="col-sm-9">
+					      <input type=text class="form-control" id="vendor" placeholder="供应商">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="djh" class="col-sm-3 control-label">供应商送货单号</label>
+					    <div class="col-sm-9">
+					      <input type=text class="form-control" id="djh" placeholder="单据号">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="ph" class="col-sm-3 control-label">批号</label>
+					    <div class="col-sm-9">
+					      <input type=text class="form-control" id="ph" placeholder="批号">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="yxq" class="col-sm-3 control-label">有效期</label>
+					    <div class="col-sm-9">
+					      <input type=text class="form-control Wdate" id="yxq" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="sl" class="col-sm-3 control-label">数量(必填)</label>
+					    <div class="col-sm-9">
+					      <input type=text class="form-control" id="sl" placeholder="数量">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="dw" class="col-sm-3 control-label">单位(必填)</label>
+					    <div class="col-sm-9">
+					      <select id="dw" class="form-control" style="width:100%"></select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="rkrq" class="col-sm-3 control-label">入库日期(必填)</label>
+					    <div class="col-sm-9">
+					      <input type=text class="form-control Wdate" id="rkrq" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false,readOnly:true})">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="memo" class="col-sm-3 control-label">备注</label>
+					    <div class="col-sm-9">
+					      <input type=text class="form-control" id="memo" placeholder="备注">
+					    </div>
+					  </div>
+					</form>
 				</div>
 				<div class="modal-footer">
 					<button id="btnSave" type="button" class="btn btn-primary" data-dismiss="modal">保存</button>

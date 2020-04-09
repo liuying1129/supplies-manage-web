@@ -8,11 +8,6 @@ img[alt="拆分"] {
     cursor: pointer;
 }
 
-#inventoryModal input[type="text"] {
-	
-	width: 100%;
-}
-
 th{
     background-color: yellow;
 }
