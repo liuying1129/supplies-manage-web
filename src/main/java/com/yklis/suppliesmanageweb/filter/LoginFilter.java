@@ -69,6 +69,7 @@ public class LoginFilter implements Filter {
           ||("/static/header.html".equals(req.getRequestURI()))
           ||("/static/querySqsydw".equals(req.getRequestURI()))
           ||("/static/querySessionAccount".equals(req.getRequestURI()))
+          ||("/static/queryWebSocketNewValueUrl".equals(req.getRequestURI()))
           ||("/static/login.html".equals(req.getRequestURI()))
           ||("/static/login".equals(req.getRequestURI()))
           ||("/static/kaptcha.jpg".equals(req.getRequestURI()))){

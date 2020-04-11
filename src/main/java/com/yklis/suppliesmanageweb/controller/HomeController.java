@@ -386,4 +386,15 @@ public class HomeController {
             return JSON.toJSONString(map);
         }
     }
+    
+    /**
+     * 查询【新结果提醒】WebSocket的URL
+     * @param request
+     * @return
+     */
+    @RequestMapping("static/queryWebSocketNewValueUrl")
+    public String queryWebSocketNewValueUrl(HttpServletRequest request) {
+        
+    	return suppliesManageService.queryWebSocketNewValueUrl();
+    }
 }
