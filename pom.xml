@@ -13,10 +13,6 @@
 	<artifactId>supplies-manage-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<!-- 自带logback依赖(spring-boot-starter-logging),logback实现了SLF4J -->
