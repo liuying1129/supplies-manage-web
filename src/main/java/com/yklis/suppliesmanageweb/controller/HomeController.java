@@ -73,6 +73,7 @@ public class HomeController {
     	  	
     	String unid = request.getParameter("unid");
     	String sjunid = request.getParameter("sjunid");
+    	//填坑:https://www.cnblogs.com/xujinlin/p/9177172.html
     	String vendor = request.getParameter("vendor");
     	try {
 			vendor = URLDecoder.decode(vendor, "UTF-8");
