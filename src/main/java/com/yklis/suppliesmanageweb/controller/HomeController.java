@@ -3,6 +3,8 @@ package com.yklis.suppliesmanageweb.controller;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -72,13 +74,38 @@ public class HomeController {
     	String unid = request.getParameter("unid");
     	String sjunid = request.getParameter("sjunid");
     	String vendor = request.getParameter("vendor");
+    	try {
+			vendor = URLDecoder.decode(vendor, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode vendor报错:"+e1.toString());
+		}
     	String djh = request.getParameter("djh");
+    	try {
+    		djh = URLDecoder.decode(djh, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode djh报错:"+e1.toString());
+		}
     	String ph = request.getParameter("ph");
+    	try {
+    		ph = URLDecoder.decode(ph, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode ph报错:"+e1.toString());
+		}
     	String yxq = request.getParameter("yxq");
     	String sl = request.getParameter("sl");
     	String dw = request.getParameter("dw");
+    	try {
+    		dw = URLDecoder.decode(dw, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode dw报错:"+e1.toString());
+		}
     	String rkrq = request.getParameter("rkrq");
     	String memo = request.getParameter("memo");
+    	try {
+    		memo = URLDecoder.decode(memo, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode memo报错:"+e1.toString());
+		}
     	
     	DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     	
@@ -161,6 +188,11 @@ public class HomeController {
     	    	    	    	     	
     	String unid = request.getParameter("unid");
     	String rlr = request.getParameter("rlr");
+    	try {
+    		rlr = URLDecoder.decode(rlr, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode rlr报错:"+e1.toString());
+		}
         int sl = 0;
         try{
         	sl = Integer.parseInt(request.getParameter("sl"));
@@ -179,8 +211,18 @@ public class HomeController {
             return JSON.toJSONString(map);
         }
     	String dw = request.getParameter("dw");
+    	try {
+    		dw = URLDecoder.decode(dw, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode dw报错:"+e1.toString());
+		}
     	String ckrq = request.getParameter("ckrq");
     	String memo = request.getParameter("memo");
+    	try {
+    		memo = URLDecoder.decode(memo, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			logger.error("URLDecoder.decode memo报错:"+e1.toString());
+		}
     	    	
     	return suppliesManageService.outputInventory(unid, rlr, sl, dw, ckrq, memo,suppliesManageService.queryUsernameFromUserid(querySessionAccount(request)));
     }
