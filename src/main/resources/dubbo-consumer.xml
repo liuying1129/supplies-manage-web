@@ -32,7 +32,8 @@
 	<!-- 这里配置后,则不需要各个服务引用单独配置check -->
 	<!-- consumer超时设置,默认1000ms(1s),超时则报错.也可在下面的接口层面【<dubbo:reference />】设置超时 -->
 	<!-- provider超时设置并不影响实际的调用过程,接受到请求,会将方法执行完,并判断是否超时,如超时则记录warn日志 -->
-	<dubbo:consumer check="false" timeout="3000" />	
+	<!-- retries:默认重试3次.如果远程服务是查询没问题,但如果是增、删、改的服务,则重复请求3次,可能会出问题 -->
+	<dubbo:consumer check="false" timeout="3000" retries="0" />	
 			
 	<!-- XML配置方式begin -->
 	<!-- 用于创建一个远程服务代理，一个引用可以指向多个注册中心 -->
