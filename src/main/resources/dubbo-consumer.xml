@@ -30,12 +30,9 @@
 		
 	<!-- check="false":provider未启动,consumer仍可启动. provider启动后,consumer可正常使用 -->
 	<!-- 这里配置后,则不需要各个服务引用单独配置check -->
-	<dubbo:consumer check="false" />
-	
-	<!-- consumer超时设置,默认1000ms(1s),超时则报错 -->
-	<!-- dubbo服务接口被第1次调用时会超1s,故需设置consumer timeout.不知何故,设置全局超时后consumer启动报错,只能在下面的接口层面超时设置 -->
+	<!-- consumer超时设置,默认1000ms(1s),超时则报错.也可在下面的接口层面【<dubbo:reference />】设置超时 -->
 	<!-- provider超时设置并不影响实际的调用过程,接受到请求,会将方法执行完,并判断是否超时,如超时则记录warn日志 -->
-	<!-- <dubbo:consumer timeout="5000" /> -->
+	<dubbo:consumer check="false" timeout="3000" />	
 			
 	<!-- XML配置方式begin -->
 	<!-- 用于创建一个远程服务代理，一个引用可以指向多个注册中心 -->
@@ -44,7 +41,7 @@
 	<!-- check="false":provider未启动,consumer仍可启动. provider启动后,consumer可正常使用 -->
 	<!-- 缺省使用<dubbo:consumer>的check值 -->
 	<!-- 直连模式,url="dubbo://localhost:20880".直连模式下,zk是否启动都没关系 -->
-	<dubbo:reference id="suppliesManageService" interface="com.yklis.suppliesmanage.inf.SuppliesManageService" url="dubbo://localhost:20880" timeout="2000"/>
+	<dubbo:reference id="suppliesManageService" interface="com.yklis.suppliesmanage.inf.SuppliesManageService" url="dubbo://localhost:20880" />
 	<!-- XML配置方式end -->    
     
 </beans>
