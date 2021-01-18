@@ -43,6 +43,15 @@
 	<!-- 缺省使用<dubbo:consumer>的check值 -->
 	<!-- 直连模式,url="dubbo://localhost:20880".直连模式下,zk是否启动都没关系 -->
 	<dubbo:reference id="suppliesManageService" interface="com.yklis.suppliesmanage.inf.SuppliesManageService" url="dubbo://localhost:20880" />
-	<!-- XML配置方式end -->    
+	<!-- XML配置方式end -->   
+	
+	<!-- 调用Dubbo服务报错，信息如下: -->
+	<!-- 2021-01-13 11:46:31 [http-nio-8082-exec-5] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.alibaba.dubbo.rpc.RpcException: Failed to invoke remote method: login(方法名), provider: dubbo://localhost:20880/com.yklis.suppliesmanage.inf.SuppliesManageService?application=consumer-test&default.check=false&default.retries=0&default.timeout=3000&dubbo=2.0.2&interface=com.yklis.suppliesmanage.inf.SuppliesManageService&methods=deleteReceipt,queryUsernameFromUserid,inventorySplit,queryWebSocketNewValueUrl,login,querySqsydw,modifyPwd,audit,updateReceipt,loadSJ_Pack,queryNoAuditReceiptList,queryReceiptList,queryOutputList,loadSJ_JBXX,insertReceipt,outputInventory,queryInventoryList&pid=2848&register.ip=192.168.0.4&side=consumer&timestamp=1609640116362, 
+	     cause: message can not send, because channel is closed . 
+	     url:dubbo://localhost:20880/com.yklis.suppliesmanage.inf.SuppliesManageService?application=consumer-test&codec=dubbo&default.check=false&default.retries=0&default.timeout=3000&dubbo=2.0.2&heartbeat=60000&interface=com.yklis.suppliesmanage.inf.SuppliesManageService&methods=deleteReceipt,queryUsernameFromUserid,inventorySplit,queryWebSocketNewValueUrl,login,querySqsydw,modifyPwd,audit,updateReceipt,loadSJ_Pack,queryNoAuditReceiptList,queryReceiptList,queryOutputList,loadSJ_JBXX,insertReceipt,outputInventory,queryInventoryList&pid=2848&register.ip=192.168.0.4&side=consumer&timestamp=1609640116362] 
+	     with root cause com.alibaba.dubbo.remoting.RemotingException: message can not send, because channel is closed . 
+	     url:dubbo://localhost:20880/com.yklis.suppliesmanage.inf.SuppliesManageService?application=consumer-test&codec=dubbo&default.check=false&default.retries=0&default.timeout=3000&dubbo=2.0.2&heartbeat=60000&interface=com.yklis.suppliesmanage.inf.SuppliesManageService&methods=deleteReceipt,queryUsernameFromUserid,inventorySplit,queryWebSocketNewValueUrl,login,querySqsydw,modifyPwd,audit,updateReceipt,loadSJ_Pack,queryNoAuditReceiptList,queryReceiptList,queryOutputList,loadSJ_JBXX,insertReceipt,outputInventory,queryInventoryList&pid=2848&register.ip=192.168.0.4&side=consumer&timestamp=1609640116362
+	 --> 
+	 <!-- 客户反馈,内网断过一次后就出现该现象.未找到根本原因,重启本程序服务即可 -->
     
 </beans>
