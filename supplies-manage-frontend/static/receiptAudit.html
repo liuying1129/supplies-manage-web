@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	
+	<!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="expires" content="0"> -->
+	
+	<title>入库审核</title>
+        
+    <!-- 网页图标 -->
+    <link rel="icon" href="../images/favicon.ico" />
+	
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- Bootstrap Table -->
+    <link rel="stylesheet" href="../bootstrap-table/bootstrap-table.min.css" />	
+        
+    <!-- 鼠标悬停动画.官网:https://github.com/IanLunn/Hover -->
+    <link rel="stylesheet" href="../hover-css/hover-min.css" />
+    
+    <link rel="stylesheet" href="../dev-css/receiptAudit.css" />
+</head>
+<body>
+
+  <!-- iframe嵌入页面header.html -->
+  <iframe id="headerIframe" src="header.html" frameborder="0" width="100%" height="55"></iframe>
+  	
+    <strong>入库日期:</strong>
+    <input type="radio" value="0"  name="rkrq" id="rkrqWeek" onchange="queryReceiptList(0)" checked />
+    <!-- Bootstrap写了label加粗的样式,故行内重写样式(经测试,写在外部CSS文件中不行) -->
+    <label style="font-weight:normal;" for="rkrqWeek">最近一周</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" value="1"  name="rkrq" id="rkrqMonth" onchange="queryReceiptList(1)" />
+    <label style="font-weight:normal;" for="rkrqMonth">最近一月</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" value="2"  name="rkrq" id="rkrq3Month" onchange="queryReceiptList(2)"  />
+    <label style="font-weight:normal;" for="rkrq3Month">最近三月</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" value="3"  name="rkrq" id="rkrqUnlimited" onchange="queryReceiptList(3)"  />
+    <label style="font-weight:normal;" for="rkrqUnlimited">不限</label><br />	  
+  
+  <table id="receiptList"></table>
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="../bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Table -->
+    <script src="../bootstrap-table/bootstrap-table.min.js"></script>
+            
+	<script src="../dev-js/receiptAudit.js"></script>
+</body>
+</html>

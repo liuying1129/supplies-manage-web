@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	
+	<title>修改密码</title>
+	    
+    <!-- 网页图标 -->
+    <link rel="icon" href="../images/favicon.ico" />
+    
+    <!-- Bootstrap -->
+    <!-- 引用bootstrap.min.css,就会隐藏iframe的白色外框(刚好需要该效果) -->
+    <link rel="stylesheet" href="../bootstrap/3.3.7/css/bootstrap.min.css" />
+    
+    <!-- Custom styles for this template -->
+    <link href="../dev-css/modifyPwd.css" rel="stylesheet">
+</head>
+<body>
+    
+  <!-- iframe嵌入页面header.html -->
+  <iframe id="headerIframe" src="header.html" frameborder="0" width="100%" height="55"></iframe>
+  
+  <div role="alert"></div>
+
+  <!-- form表单数据通过submit提交到controller示例,action -->
+  <form id="formModifyPwd"><!-- action="modifyPwd" method="post" -->
+    <!-- <input type="password" name="oldPwd" placeholder="原密码"><br/><br/> -->
+    <input type="text" name="oldPwd" placeholder="原密码" onfocus="this.type='password'" autocomplete="off"><br/><br/>
+    <!-- <input type="password" name="newPwd" placeholder="新密码" required><br/><br/> -->
+    <input type="text" name="newPwd" placeholder="新密码" required onfocus="this.type='password'" autocomplete="off"><br/><br/>
+    <!-- <input type="password" name="confirmPwd" placeholder="确认新密码"><br/> -->
+    <input type="text" name="confirmPwd" placeholder="确认新密码" onfocus="this.type='password'" autocomplete="off"><br/>
+    <br/>
+    <input type="button" style="font-family: Microsoft Yahei;" value="确定" onclick="modifyPwd()">
+  </form>
+  
+  <script src="../jquery/jquery-3.2.1.min.js"></script>
+  <script src="../dev-js/modifyPwd.js"></script>
+  
+</body>
+</html>

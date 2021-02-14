@@ -1,0 +1,7 @@
+th{
+    background-color: yellow;
+}
+
+tr:nth-of-type(even){
+    background-color: #a4c2f4;
+}
