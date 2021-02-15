@@ -108,6 +108,9 @@ function queryOutputList(ckrqRadioValue){
     
 $(document).ready(function() {
 	
+	//登录校验
+	if(loginCheck() == false){return;}
+	
 	//读取用户的选择begin	
 	//入库日期
 	var radiosCkrq = document.getElementsByName("ckrq");

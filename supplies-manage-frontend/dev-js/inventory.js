@@ -131,6 +131,9 @@ function inventorySplit(unid){
 
 $(document).ready(function() {
 	
+	//登录校验
+	if(loginCheck() == false){return;}
+	
 	//模式窗口的shown事件
 	$('#inventoryModal').on('shown.bs.modal', function (e) {
 		
