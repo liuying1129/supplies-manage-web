@@ -53,13 +53,13 @@ public class HomeController {
 	 * 耗材入库界面列表，默认展示未审核的入库单
 	 * 
 	 */ 
-    @RequestMapping("static/queryNoAuditReceiptList")
+    @RequestMapping("static/api/queryNoAuditReceiptList")
     public String queryNoAuditReceiptList() {
     	
     	return suppliesManageService.queryNoAuditReceiptList();
     }
     
-    @RequestMapping("static/deleteReceipt")
+    @RequestMapping("static/api/deleteReceipt")
     public String deleteReceipt(HttpServletRequest request,HttpServletResponse response) {
     	
     	String unid = request.getParameter("unid");
@@ -67,7 +67,7 @@ public class HomeController {
     	return suppliesManageService.deleteReceipt(unid);
     }
     
-    @RequestMapping("static/saveReceipt")
+    @RequestMapping("static/api/saveReceipt")
     public String saveReceipt(HttpServletRequest request,HttpServletResponse response) {
     	  	
     	String unid = request.getParameter("unid");
@@ -145,13 +145,13 @@ public class HomeController {
     	}
     }
     
-    @RequestMapping("static/loadSJ_JBXX")
+    @RequestMapping("static/api/loadSJ_JBXX")
     public String loadSJ_JBXX(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	 
     	return suppliesManageService.loadSJ_JBXX();
     }
     
-    @RequestMapping("static/loadSJ_Pack")
+    @RequestMapping("static/api/loadSJ_Pack")
     public String loadSJ_Pack(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	 
     	String sjunid = request.getParameter("sjunid");
@@ -159,7 +159,7 @@ public class HomeController {
     	return suppliesManageService.loadSJ_Pack(sjunid);
     }
     
-    @RequestMapping("static/queryReceiptList")
+    @RequestMapping("static/api/queryReceiptList")
     public String queryReceiptList(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	     	
     	String rkrqRadioValue = request.getParameter("rkrq");
@@ -167,14 +167,14 @@ public class HomeController {
     	return suppliesManageService.queryReceiptList(rkrqRadioValue);
     }
     
-    @RequestMapping("static/audit")
+    @RequestMapping("static/api/audit")
     public String audit(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	     	
     	String unid = request.getParameter("unid");
     	return suppliesManageService.audit(unid,suppliesManageService.queryUsernameFromUserid(querySessionAccount(request)));
     }
     
-    @RequestMapping("static/queryInventoryList")
+    @RequestMapping("static/api/queryInventoryList")
     public String queryInventoryList(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	     	
     	String hcName = request.getParameter("hcName");
@@ -183,7 +183,7 @@ public class HomeController {
     	return suppliesManageService.queryInventoryList(hcName,vendor);
     }
     
-    @RequestMapping("static/outputInventory")
+    @RequestMapping("static/api/outputInventory")
     public String outputInventory(HttpServletRequest request,HttpServletResponse response) {
     	    	    	    	     	
     	String unid = request.getParameter("unid");
@@ -227,7 +227,7 @@ public class HomeController {
     	return suppliesManageService.outputInventory(unid, rlr, sl, dw, ckrq, memo,suppliesManageService.queryUsernameFromUserid(querySessionAccount(request)));
     }
     
-    @RequestMapping("static/queryOutputList")
+    @RequestMapping("static/api/queryOutputList")
     public String queryOutputList(HttpServletRequest request,HttpServletResponse response) {
     	   
     	String ckrqRadioValue = request.getParameter("ckrq");
@@ -235,13 +235,13 @@ public class HomeController {
     	return suppliesManageService.queryOutputList(ckrqRadioValue);
     }
     
-    @RequestMapping(value = "static/querySqsydw")
+    @RequestMapping(value = "static/api/querySqsydw")
     public String querySqsydw() {
                 
     	return suppliesManageService.querySqsydw();
     }
     
-    @RequestMapping(value = "static/login" )
+    @RequestMapping(value = "static/api/login" )
     public String login(HttpServletRequest request,
             HttpServletResponse response,
             //如required设置为true,则地址栏中访问http://localhost:8080/YkLis/login时,因校验不通过,页面报错
@@ -299,7 +299,7 @@ public class HomeController {
         return JSON.toJSONString(map);
     }
     
-    @RequestMapping("static/logout")
+    @RequestMapping("static/api/logout")
     public void logout(HttpServletRequest request,HttpServletResponse response) {
     	
         HttpSession session = request.getSession(false);//参数默认值:true
@@ -320,7 +320,7 @@ public class HomeController {
 		}*/
     }
     
-    @RequestMapping("static/querySessionAccount")
+    @RequestMapping("static/api/querySessionAccount")
     public String querySessionAccount(HttpServletRequest request) {
         
         String s2 = null;
@@ -333,7 +333,7 @@ public class HomeController {
         return s2;
     }
     
-	@RequestMapping("static/kaptcha.jpg")
+	@RequestMapping("static/api/kaptcha.jpg")
 	public void defaultKaptcha(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 				
 		byte[] captchaChallengeAsJpeg = null;
@@ -362,7 +362,7 @@ public class HomeController {
 		responseOutputStream.close();
 	}
 	
-    @RequestMapping(value = "static/inventorySplit")
+    @RequestMapping(value = "static/api/inventorySplit")
     public String inventorySplit(HttpServletRequest request) {
                 
     	String unid = request.getParameter("unid");
@@ -370,7 +370,7 @@ public class HomeController {
     	return suppliesManageService.inventorySplit(unid);
     }
     
-    @RequestMapping("static/modifyPwd")
+    @RequestMapping("static/api/modifyPwd")
     public String modifyPwd(HttpServletRequest request) {
     	
     	String account = querySessionAccount(request);
@@ -435,7 +435,7 @@ public class HomeController {
      * @param request
      * @return
      */
-    @RequestMapping("static/queryWebSocketNewValueUrl")
+    @RequestMapping("static/api/queryWebSocketNewValueUrl")
     public String queryWebSocketNewValueUrl(HttpServletRequest request) {
         
     	return suppliesManageService.queryWebSocketNewValueUrl();
