@@ -12,10 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-
 
 /**
  * 未登录的情况下，强制进入登录页面
@@ -23,7 +19,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-@Component
+//@Component//前后端分离改造,屏蔽该段.让该Filter类失效
 //不需要@WebFilter,Springboot自动将该类配置为Filter
 //@WebFilter(urlPatterns = "/*")
 public class LoginFilter implements Filter {

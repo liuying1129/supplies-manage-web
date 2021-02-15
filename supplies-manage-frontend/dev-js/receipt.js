@@ -69,7 +69,10 @@ function loadSJ_Pack(sjunid,dw){
 }
 
 $(document).ready(function() {
-		
+	
+	//登录校验
+	if(loginCheck() == false){return;}
+	
 	//Select2初始化,参数是一个对象
 	$('#sjunid').select2({
 		dropdownParent: $("#receiptModal"),//bootstrap modal中使用必须加这句
