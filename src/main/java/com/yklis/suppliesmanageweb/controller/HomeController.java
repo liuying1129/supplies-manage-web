@@ -2,7 +2,6 @@ package com.yklis.suppliesmanageweb.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.time.LocalDate;
@@ -312,12 +311,13 @@ public class HomeController {
         cookie2.setMaxAge(0);
         response.addCookie(cookie2);
     	
+        /*//前后端分离改造,屏蔽该段
         try {
 			response.sendRedirect("/index.html");
 		} catch (IOException e) {
 			
             logger.error("方法logout的response.sendRedirect失败:"+e.toString());
-		}
+		}*/
     }
     
     @RequestMapping("static/querySessionAccount")
