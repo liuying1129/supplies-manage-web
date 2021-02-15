@@ -38,7 +38,7 @@
     <input type="text" name="password" placeholder="密码" onfocus="this.type='password'" autocomplete="off">
     <label for="captcha">captcha</label>
     <input type="text" name="captcha" placeholder="验证码" required>
-    <img alt="验证码" title="点击更换" src="kaptcha.jpg" onclick="this.src='kaptcha.jpg?d='+new Date()*1" /><!-- src对应Controller的@RequestMapping -->
+    <img alt="验证码" title="点击更换" src="api/kaptcha.jpg" onclick="this.src='api/kaptcha.jpg?d='+new Date()*1" /><!-- src对应Controller的@RequestMapping -->
     <input type="button" value="登录" onclick="login()">
   </form>
   

@@ -63,7 +63,7 @@ $(document).ready(function() {
 		//默认值: "application/x-www-form-urlencoded"。发送信息至服务器时内容编码类型
 		//默认值适合大多数情况。如果你明确指定$.ajax()的 content-type,那么它必定会发送给服务器（即使没有数据要发送）
 		//contentType : "application/x-www-form-urlencoded",//application/json
-		url : 'querySqsydw',
+		url : 'api/querySqsydw',
 		//预期服务器返回的数据类型。如果不指定，jQuery将自动根据 HTTP包 MIME信息来智能判断
 		//dataType : 'json',
 		success : function(data) {
@@ -98,7 +98,7 @@ $(document).ready(function() {
 		//默认值: "application/x-www-form-urlencoded"。发送信息至服务器时内容编码类型
 		//默认值适合大多数情况。如果你明确指定$.ajax()的 content-type,那么它必定会发送给服务器（即使没有数据要发送）
 		//contentType : "application/x-www-form-urlencoded",//application/json
-		url : 'querySessionAccount',
+		url : 'api/querySessionAccount',
 		//预期服务器返回的数据类型。如果不指定，jQuery将自动根据 HTTP包 MIME信息来智能判断
 		//dataType : 'json',
 		success : function(data) {
@@ -151,7 +151,7 @@ $(document).ready(function() {
 		//默认值: "application/x-www-form-urlencoded"。发送信息至服务器时内容编码类型
 		//默认值适合大多数情况。如果你明确指定$.ajax()的 content-type,那么它必定会发送给服务器（即使没有数据要发送）
 		//contentType : "application/x-www-form-urlencoded",//application/json
-		url : 'queryWebSocketNewValueUrl',
+		url : 'api/queryWebSocketNewValueUrl',
 		//预期服务器返回的数据类型。如果不指定，jQuery将自动根据 HTTP包 MIME信息来智能判断
 		//dataType : 'json',
 		success : function(data) {
