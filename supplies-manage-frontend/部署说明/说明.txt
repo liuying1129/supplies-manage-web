@@ -3,4 +3,4 @@
 2、将supplies-manage-frontend复制到nginx的html目录中
 3、配置nginx.conf（将nginx.conf复制到nginx的conf目录中）
 4、启动nginx
-5、访问http://localhost:8085
+5、访问http://localhost:8022
